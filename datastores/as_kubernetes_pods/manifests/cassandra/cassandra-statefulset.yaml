@@ -66,6 +66,16 @@ spec:
                 configMapKeyRef:
                   name: sysdigcloud-config
                   key: cassandra.ssl.enabled
+            - name: CASSANDRA_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: sysdigcloud-config
+                  key: cassandra.user
+            - name: CASSANDRA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cassandra-user-password
+                  key: password
             - name: POD_IP
               valueFrom:
                 fieldRef:
